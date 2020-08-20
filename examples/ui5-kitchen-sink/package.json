@@ -1,0 +1,24 @@
+{
+  "name": "ui5-kitchen-sink",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 9001"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "storybook-ui5": "*",
+    "chalk": "^3.0.0",
+    "shelljs": "^0.8.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.11.1",
+    "@storybook/addon-essentials": "^6.0.16",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.1"
+  }
+}
