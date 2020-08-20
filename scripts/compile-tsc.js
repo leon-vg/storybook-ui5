@@ -6,7 +6,7 @@ const shell = require('shelljs');
 function getCommand(watch) {
   const tsc = path.join(__dirname, '..', 'node_modules', '.bin', 'tsc');
 
-  const args = ['--outDir ./app/ui5/dist', '--listEmittedFiles true'];
+  const args = ['--outDir ./dist', '--listEmittedFiles true'];
 
   /**
    * Only emit declarations if it does not need to be compiled with tsc

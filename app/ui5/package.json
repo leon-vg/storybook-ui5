@@ -16,9 +16,12 @@
   },
   "license": "MIT",
   "files": [
+    "bin/**/*",
+    "dist/**/*",
     "README.md",
     "*.js",
-    "*.d.ts"
+    "*.d.ts",
+    "ts3.5/**/*"
   ],
   "main": "dist/client/index.js",
   "typings": "dist/client/index.d.ts",
@@ -31,24 +34,19 @@
     "prepare": "node ../../scripts/prepare.js"
   },
   "dependencies": {
-    "@babel/core": "^7.11.1",
-    "@storybook/addons": "latest",
-    "@storybook/client-api": "latest",
-    "@storybook/core": "latest",
-    "@storybook/core-events": "latest",
-    "@storybook/source-loader": "latest",
-    "@types/webpack": "^4.41.3",
-    "@types/webpack-env": "^1.15.0",
-    "babel-loader": "^8.0.6",
+    "@storybook/addons": "6.0.16",
+    "@storybook/core": "6.0.16",
+    "@types/webpack-env": "^1.15.2",
     "core-js": "^3.0.1",
     "global": "^4.3.2",
-    "html-loader": "^0.5.5",
+    "html-loader": "^1.0.0",
     "regenerator-runtime": "^0.13.3",
-    "ts-dedent": "^1.1.0",
-    "typescript": "^3.7.5"
+    "ts-dedent": "^1.1.1"
   },
   "peerDependencies": {
-    "babel-loader": "^7.0.0 || ^8.0.0"
+    "@babel/core": "*",
+    "react": "*",
+    "react-dom": "*"
   },
   "engines": {
     "node": ">=8.0.0"
