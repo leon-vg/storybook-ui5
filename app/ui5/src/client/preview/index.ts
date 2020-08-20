@@ -4,11 +4,11 @@ import { ClientStoryApi, Loadable } from '@storybook/addons';
 
 import './globals';
 import render from './render';
-import { StoryFnHtmlReturnType, IStorybookSection } from './types';
+import { StoryFnXmlReturnType, IStorybookSection } from './types';
 
 const framework = 'ui5';
 
-interface ClientApi extends ClientStoryApi<StoryFnHtmlReturnType> {
+interface ClientApi extends ClientStoryApi<StoryFnXmlReturnType> {
   setAddon(addon: any): void;
   configure(loader: Loadable, module: NodeModule): void;
   getStorybook(): IStorybookSection[];
