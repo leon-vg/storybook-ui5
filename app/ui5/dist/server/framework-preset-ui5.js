@@ -1,28 +1,33 @@
 "use strict";
-
-require("core-js/modules/es.array.iterator");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.webpack = webpack;
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-// eslint-disable-next-line import/no-extraneous-dependencies
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 function webpack(config) {
-  return _objectSpread(_objectSpread({}, config), {}, {
-    module: _objectSpread(_objectSpread({}, config.module), {}, {
-      rules: [...config.module.rules, {
-        test: /\.html$/,
-        use: [{
-          loader: require.resolve('html-loader')
-        }]
-      }]
-    })
-  });
+    return __assign(__assign({}, config), { module: __assign(__assign({}, config.module), { rules: __spreadArrays(config.module.rules, [
+                {
+                    test: /\.html$/,
+                    use: [
+                        {
+                            loader: require.resolve('html-loader'),
+                        },
+                    ],
+                },
+            ]) }) });
 }
+exports.webpack = webpack;

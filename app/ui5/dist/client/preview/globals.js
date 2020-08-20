@@ -1,5 +1,4 @@
 "use strict";
-
-var _global = require("global");
-
-_global.window.STORYBOOK_ENV = 'UI5';
+Object.defineProperty(exports, "__esModule", { value: true });
+var global_1 = require("global");
+global_1.window.STORYBOOK_ENV = 'UI5';

@@ -1,59 +1,14 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "storiesOf", {
-  enumerable: true,
-  get: function get() {
-    return _preview.storiesOf;
-  }
-});
-Object.defineProperty(exports, "setAddon", {
-  enumerable: true,
-  get: function get() {
-    return _preview.setAddon;
-  }
-});
-Object.defineProperty(exports, "addDecorator", {
-  enumerable: true,
-  get: function get() {
-    return _preview.addDecorator;
-  }
-});
-Object.defineProperty(exports, "addParameters", {
-  enumerable: true,
-  get: function get() {
-    return _preview.addParameters;
-  }
-});
-Object.defineProperty(exports, "configure", {
-  enumerable: true,
-  get: function get() {
-    return _preview.configure;
-  }
-});
-Object.defineProperty(exports, "getStorybook", {
-  enumerable: true,
-  get: function get() {
-    return _preview.getStorybook;
-  }
-});
-Object.defineProperty(exports, "forceReRender", {
-  enumerable: true,
-  get: function get() {
-    return _preview.forceReRender;
-  }
-});
-Object.defineProperty(exports, "raw", {
-  enumerable: true,
-  get: function get() {
-    return _preview.raw;
-  }
-});
-
-var _preview = require("./preview");
-
+Object.defineProperty(exports, "__esModule", { value: true });
+var preview_1 = require("./preview");
+exports.storiesOf = preview_1.storiesOf;
+exports.setAddon = preview_1.setAddon;
+exports.addDecorator = preview_1.addDecorator;
+exports.addParameters = preview_1.addParameters;
+exports.configure = preview_1.configure;
+exports.getStorybook = preview_1.getStorybook;
+exports.forceReRender = preview_1.forceReRender;
+exports.raw = preview_1.raw;
 if (module && module.hot && module.hot.decline) {
-  module.hot.decline();
+    module.hot.decline();
 }
