@@ -1,8 +1,6 @@
-import { document, Node } from 'global';
+import { sap } from 'global';
 import dedent from 'ts-dedent';
 import { RenderMainArgs } from './types';
-
-const rootElement = document.getElementById('root');
 
 export default function renderMain({
   storyFn,
@@ -15,23 +13,25 @@ export default function renderMain({
   const element = storyFn();
 
   showMain();
-  if (typeof element === 'string') {
-    rootElement.innerHTML = element;
-  } else if (element instanceof Node) {
-    // Don't re-mount the element if it didn't change and neither did the story
-    if (rootElement.firstChild === element && forceRender === true) {
-      return;
-    }
 
-    rootElement.innerHTML = '';
-    rootElement.appendChild(element);
-  } else {
+  if (typeof element !== "string") {
     showError({
-      title: `Expecting an HTML snippet or DOM node from the story: "${selectedStory}" of "${selectedKind}".`,
+      title: `Expecting an XML fragment from the story: "${selectedStory}" of "${selectedKind}".`,
       description: dedent`
-        Did you forget to return the HTML snippet from the story?
+        Did you forget to return the XML fragment from the story?
         Use "() => <your snippet or node>" or when defining the story.
       `,
     });
+    return;
   }
+
+  sap.ui.getCore().attachInit(() => {
+    sap.ui.require(["sap/ui/core/Fragment"], async function(Fragment: any) {
+      const fragment = await Fragment.load({
+        type: "XML",
+        definition: element
+      });
+      fragment.placeAt("root", "only");
+    });
+  });
 }
