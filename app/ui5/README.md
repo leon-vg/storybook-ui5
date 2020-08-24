@@ -1,8 +1,8 @@
-# Storybook for ui5
+# Storybook for UI5
 
 ---
 
-Storybook for ui5 is a UI development environment for your plain framework snippets.
+Storybook for UI5 is a UI development environment for your plain framework snippets.
 With it, you can visualize different states of your UI components and develop them interactively.
 
 ![Storybook Screenshot](https://github.com/storybookjs/storybook/blob/master/media/storybook-intro.gif)

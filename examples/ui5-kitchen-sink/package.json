@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -s ./components -p 9001"
+    "storybook": "start-storybook -s ./components -p 9001",
+    "build": "build-storybook -s ./components -o ./output"
   },
   "author": "",
   "license": "ISC",
