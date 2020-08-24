@@ -19,6 +19,9 @@
   "license": "MIT",
   "devDependencies": {
     "chalk": "^3.0.0",
-    "shelljs": "^0.8.3"
+    "jest": "^26.4.2",
+    "npmlog": "^4.1.2",
+    "shelljs": "^0.8.3",
+    "typescript": "^4.0.2"
   }
 }

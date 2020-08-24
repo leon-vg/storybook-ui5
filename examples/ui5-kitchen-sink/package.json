@@ -18,6 +18,7 @@
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@storybook/addon-essentials": "^6.0.16",
+    "@storybook/addon-links": "^6.0.16",
     "babel-loader": "^8.1.0",
     "storybook-ui5": "file:../../app/ui5/storybook-ui5-0.0.1.tgz",
     "webpack": "^4.44.1"
