@@ -8,8 +8,11 @@
     "example": "examples"
   },
   "scripts": {
-    "build": "node ./scripts/watch-tsc.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "package:build": "tsc --outDir ./app/ui5/dist --listEmittedFiles true",
+    "package:watch": "tsc --outDir ./app/ui5/dist --listEmittedFiles true -w",
+    "demo:run-watch": "npm run storybook --prefix examples/ui5-kitchen-sink",
+    "demo:build-static": "npm run build-static --prefix examples/ui5-kitchen-sink -- -o ../../demo",
+    "demo:serve-static": "http-server -o http://localhost:8080/demo"
   },
   "workspaces": [
     "app/*",
@@ -23,5 +26,8 @@
     "npmlog": "^4.1.2",
     "shelljs": "^0.8.3",
     "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
   }
 }
