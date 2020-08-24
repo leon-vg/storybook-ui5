@@ -20,8 +20,7 @@
     "dist/**/*",
     "README.md",
     "*.js",
-    "*.d.ts",
-    "ts3.5/**/*"
+    "*.d.ts"
   ],
   "main": "dist/client/index.js",
   "typings": "dist/client/index.d.ts",

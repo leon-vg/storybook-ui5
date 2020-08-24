@@ -7,18 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -s ./components -p 9001",
-    "build": "build-storybook -s ./components -o ./output"
+    "build-static": "build-storybook -s ./components"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "chalk": "^3.0.0",
-    "shelljs": "^0.8.3"
-  },
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@storybook/addon-essentials": "^6.0.16",
-    "@storybook/addon-links": "^6.0.16",
     "babel-loader": "^8.1.0",
     "storybook-ui5": "*",
     "webpack": "^4.44.1"

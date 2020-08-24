@@ -12,7 +12,7 @@
     "package:watch": "tsc --outDir ./app/ui5/dist --listEmittedFiles true -w",
     "demo:run-watch": "npm run storybook --prefix examples/ui5-kitchen-sink",
     "demo:build-static": "npm run build-static --prefix examples/ui5-kitchen-sink -- -o ../../demo",
-    "demo:serve-static": "http-server -o http://localhost:8080/demo"
+    "demo:serve-static": "http-server -o demo"
   },
   "workspaces": [
     "app/*",
