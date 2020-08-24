@@ -1,0 +1,56 @@
+{
+  "name": "storybook-ui5",
+  "version": "0.0.1",
+  "description": "Storybook for ui5: View ui5 components in isolation with hot reloading.",
+  "keywords": [
+    "storybook",
+    "ui5"
+  ],
+  "homepage": "https://github.com/leon-vg/storybook-ui5/app/framework",
+  "bugs": {
+    "url": "https://github.com/leon-vg/storybook-ui5/issues"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "app/ui5"
+  },
+  "license": "MIT",
+  "files": [
+    "bin/**/*",
+    "dist/**/*",
+    "README.md",
+    "*.js",
+    "*.d.ts"
+  ],
+  "main": "dist/client/index.js",
+  "typings": "dist/client/index.d.ts",
+  "bin": {
+    "build-storybook": "./bin/build.js",
+    "start-storybook": "./bin/index.js",
+    "storybook-server": "./bin/index.js"
+  },
+  "scripts": {
+    "prepare": "node ../../scripts/prepare.js"
+  },
+  "dependencies": {
+    "@storybook/addons": "6.0.16",
+    "@storybook/core": "6.0.16",
+    "@types/webpack-env": "^1.15.2",
+    "core-js": "^3.0.1",
+    "global": "^4.3.2",
+    "html-loader": "^1.0.0",
+    "regenerator-runtime": "^0.13.3",
+    "ts-dedent": "^1.1.1"
+  },
+  "peerDependencies": {
+    "@babel/core": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

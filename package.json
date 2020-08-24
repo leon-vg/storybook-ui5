@@ -1,0 +1,27 @@
+{
+  "name": "storybook-ui5",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "package:build": "tsc --outDir ./app/ui5/dist --listEmittedFiles true",
+    "package:watch": "tsc --outDir ./app/ui5/dist --listEmittedFiles true -w",
+    "demo:run-watch": "npm run storybook --prefix examples/ui5-kitchen-sink",
+    "demo:build-static": "npm run build-static --prefix examples/ui5-kitchen-sink -- -o ../../demo",
+    "demo:serve-static": "http-server -o demo"
+  },
+  "workspaces": [
+    "app/*",
+    "examples/*"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.0.2",
+    "http-server": "^0.12.3"
+  }
+}
