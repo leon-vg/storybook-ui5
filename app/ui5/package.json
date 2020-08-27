@@ -1,12 +1,12 @@
 {
   "name": "storybook-ui5",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Storybook for UI5: View UI5 controls in isolation with hot reloading.",
   "keywords": [
     "storybook",
     "ui5"
   ],
-  "homepage": "https://github.com/leon-vg/storybook-ui5",
+  "homepage": "https://github.com/leon-vg/storybook-ui5/app/ui5",
   "bugs": {
     "url": "https://github.com/leon-vg/storybook-ui5/issues"
   },
