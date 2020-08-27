@@ -1,12 +1,12 @@
 {
   "name": "storybook-ui5",
-  "version": "0.0.1",
-  "description": "Storybook for ui5: View ui5 components in isolation with hot reloading.",
+  "version": "0.0.2",
+  "description": "Storybook for UI5: View UI5 controls in isolation with hot reloading.",
   "keywords": [
     "storybook",
     "ui5"
   ],
-  "homepage": "https://github.com/leon-vg/storybook-ui5/app/framework",
+  "homepage": "https://github.com/leon-vg/storybook-ui5",
   "bugs": {
     "url": "https://github.com/leon-vg/storybook-ui5/issues"
   },
@@ -28,9 +28,6 @@
     "build-storybook": "./bin/build.js",
     "start-storybook": "./bin/index.js",
     "storybook-server": "./bin/index.js"
-  },
-  "scripts": {
-    "prepare": "node ../../scripts/prepare.js"
   },
   "dependencies": {
     "@storybook/addons": "6.0.16",
