@@ -34,6 +34,10 @@ jobs:
           npm run package:build
           npm run demo:build-static
 
+      - run: yarn publish app/ui5
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
