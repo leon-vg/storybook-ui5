@@ -1,6 +1,6 @@
 {
   "name": "storybook-ui5",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Storybook for UI5: View UI5 controls in isolation with hot reloading.",
   "keywords": [
     "storybook",

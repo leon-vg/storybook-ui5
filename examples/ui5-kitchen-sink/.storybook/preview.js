@@ -1,1 +1,5 @@
-export const parameters = {}
+export const parameters = {
+    docs: {
+      inlineStories: false
+	}
+}
