@@ -9,6 +9,7 @@ export default function renderMain({
   showMain,
   showError,
   forceRender,
+  args,
 }: RenderMainArgs) {
   const element = storyFn();
 
@@ -25,11 +26,23 @@ export default function renderMain({
     return;
   }
 
+  const controller = {};
+
+  for (const property in args) {
+    if (args[property].name === "actionHandler") {
+      controller[property] = (event: any) => {
+        delete event.oSource; // oSource causes problems due to a circular reference, so we just delete it
+        args[property](event);
+      }
+    }
+  }
+
   sap.ui.getCore().attachInit(() => {
     sap.ui.require(["sap/ui/core/Fragment"], async function(Fragment: any) {
       const fragment = await Fragment.load({
         type: "XML",
-        definition: element
+        definition: element,
+        controller: controller
       });
       fragment.placeAt("root", "only");
     });

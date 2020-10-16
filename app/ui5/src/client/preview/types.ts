@@ -24,4 +24,5 @@ export interface RenderMainArgs {
   showMain: () => void;
   showError: (args: ShowErrorArgs) => void;
   forceRender: boolean;
+  args: any;
 }
