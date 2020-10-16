@@ -26,7 +26,7 @@ export default function renderMain({
     return;
   }
 
-  const controller = {};
+  const controller:any = {};
 
   for (const property in args) {
     if (args[property].name === "actionHandler") {
