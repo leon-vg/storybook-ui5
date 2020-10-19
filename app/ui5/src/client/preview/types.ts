@@ -1,6 +1,11 @@
 import { StoryFn } from '@storybook/addons';
 
-export type StoryFnXmlReturnType = string;
+export type StoryFnXmlReturnType = string | IStoryFnReturnType;
+
+export interface IStoryFnReturnType {
+  template: string;
+  controller:any;
+}
 
 export interface IStorybookStory {
   name: string;

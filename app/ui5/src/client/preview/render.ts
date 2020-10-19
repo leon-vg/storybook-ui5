@@ -11,16 +11,17 @@ export default function renderMain({
   forceRender,
   args,
 }: RenderMainArgs) {
-  const element = storyFn();
+  const element:any = storyFn();
 
   showMain();
 
-  if (typeof element !== "string") {
+  if (typeof element !== "string" && !element.controller) {
     showError({
-      title: `Expecting an XML fragment from the story: "${selectedStory}" of "${selectedKind}".`,
+      title: `Returned value from storyfunction not to spec: "${selectedStory}" of "${selectedKind}".`,
       description: dedent`
         Did you forget to return the XML fragment from the story?
         Use "() => <your snippet or node>" or when defining the story.
+        A storyfunction should either return an XML fragment (string) or an object with two properties: 'template' and 'controller'.
       `,
     });
     return;
@@ -37,11 +38,16 @@ export default function renderMain({
     }
   }
 
+  // TODO: don't overwrite the actions on the controller object, but trigger them as well when defining custom logic manually
+  if (element.controller) {
+    Object.assign(controller, element.controller)
+  }
+
   sap.ui.getCore().attachInit(() => {
     sap.ui.require(["sap/ui/core/Fragment"], async function(Fragment: any) {
       const fragment = await Fragment.load({
         type: "XML",
-        definition: element,
+        definition: element.template ? element.template : element,
         controller: controller
       });
       fragment.placeAt("root", "only");
