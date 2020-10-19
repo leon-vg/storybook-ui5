@@ -21,10 +21,14 @@ Simple.args = {
 const TemplateWithController = (args) => ({
   controller: {
     press: function(evt) {
+      this.byId("button").setText("whatever")
       evt.getSource().setText("Change the text");
     }
   },
-  template: `<ReverseButton xmlns="custom" text="${args.text}" press="press" />`
+  template: `<FlexBox xmlns="sap.m">
+    <ReverseButton xmlns="custom" text="${args.text}" press="press" />
+    <Button id="button" text="" />
+  </FlexBox>`
 })
 
 export const SimpleWithController = TemplateWithController.bind({});

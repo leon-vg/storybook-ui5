@@ -44,11 +44,11 @@ export default function renderMain({
   }
 
   sap.ui.getCore().attachInit(() => {
-    sap.ui.require(["sap/ui/core/Fragment"], async function(Fragment: any) {
-      const fragment = await Fragment.load({
-        type: "XML",
-        definition: element.template ? element.template : element,
-        controller: controller
+    sap.ui.require(["sap/ui/core/mvc/XMLView", "sap/ui/core/mvc/Controller"], async function(XMLView: any, ControllerClass: any) {
+      const Controller = ControllerClass.extend("whatever", controller)
+      const fragment = await XMLView.create({
+        definition: `<mvc:View xmlns:mvc="sap.ui.core.mvc">${element.template ? element.template : element}</mvc:View>`,
+        controller: controller ? new Controller(): undefined
       });
       fragment.placeAt("root", "only");
     });
