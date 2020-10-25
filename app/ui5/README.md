@@ -2,29 +2,29 @@
 
 ---
 
-[Storybook](https://storybook.js.org/) is a popular tool for developing UI components in isolation. It works with most popular frameworks, but UI5 was not one of them so far.
+[Storybook](https://storybook.js.org/) is a popular tool for developing UI components in isolation. It works with most popular frameworks, but UI5 was not one of them - until now.
 
-With Storybook, you can visualize different states of your UI components and develop them interactively. It works with hot module reloading, so you can view your changes as you're making them.
+With Storybook, you can visualize different states of your controls and develop them interactively. It works with hot module reloading, so you can view your changes as you're making them. It's a great tool for developing UI5 controls in isolation without worrying about app specific dependencies and requirements.
 
-Storybook runs outside of your app, so you can develop UI components in isolation without worrying about app specific dependencies and requirements. It's a great tool for working on controls in isolation. 
+But enough talk, just checkout [the demo](https://leon-vg.github.io/storybook-ui5/) to see Storybook-UI5 in action!
 
-## Getting Started
+## Quick Start
 
-### Quick start
+Perhaps the easiest way to get up and running is by copying the contents of the [example project](https://github.com/leon-vg/storybook-ui5/tree/master/examples/ui5-kitchen-sink) to a new folder. You could clone the github project first to make copying easier.
 
-Copy the contents of the [example project](https://github.com/leon-vg/storybook-ui5/tree/master/examples/ui5-kitchen-sink) to a new folder. You could clone the github project first to make copying easier.
+Next, run `npm install` and run `npm run storybook`. After a minute or so, the application should launch in your browser. Try changing a story and see how it is rendered immediately without a refresh.
 
-Run `npm install` and run `npm run storybook`.
+## Integration in existing project
 
-### Slow start
+Storybook-UI5 can run completely seperate from your project. It only needs access to the various controls that you wish to demo.
 
-In your node project, install the following needed dependencies:
+In your node project, install the following dependencies
 
 ```
-npm install storybook-ui5 @storybook/addon-essentials@6 @babel/core@7 babel-loader@8 webpack@4
+npm install --save-dev storybook-ui5 @storybook/addon-essentials@6 @babel/core@7 babel-loader@8 webpack@4
 ```
 
-Create a .storybook folder and add a main.js file:
+Next, create a `.storybook` folder and in it add a `main.js` file with the following contents:
 
 ``` 
 // .storybook/main.js
@@ -36,14 +36,19 @@ module.exports = {
 };
 ```
 
-Also add a preview.js file:
+Also add a `preview.js` file in this folder:
 
 ```
 // .storybook/preview.js
-export const parameters = {}
+export const parameters = {
+    docs: {
+      // This setting makes sure that UI5 controls are rendered in the 'Docs' section in Storybook
+      inlineStories: false 
+	}
+}
 ```
 
-And a preview-head.html file:
+Next, also a `preview-head.html` file:
 
 ```
 <!-- .storybook/preview-head.html -->
@@ -56,7 +61,7 @@ And a preview-head.html file:
 </script>
 ```
 
-Next, put your custom controls in the folder components/[namespace]/[control].js, for example:
+Put your custom controls (which you want to show in Storybook) in the folder `components/[namespace]/[control].js`, for example:
 ```
 // components/custom/ReverseButton.js
 sap.ui.define(["sap/m/Button"], function (Button) {
@@ -73,7 +78,7 @@ sap.ui.define(["sap/m/Button"], function (Button) {
 });
 ```
 
-Then, create your first story in the stories folder:
+Then, create the corresponding story in the `stories` folder:
 
 ```
 // stories/ReverseButton.stories.js
@@ -94,16 +99,6 @@ Simple.args = {
   text: "Wait, this is weird!"
 }
 ````
-
-Now you can start working on your storybook. Add two scripts to the package.json. The flag `-s ./components` makes sure the contents of the components folder are served as static resources in the http-server that storybook creates.
-
-```
-  // package.json
-  "scripts": {
-    "storybook": "start-storybook -s ./components -p 9001",
-    "build-static": "build-storybook -s ./components"
-  }
-```
 
 Now run UI5 storybook
 
