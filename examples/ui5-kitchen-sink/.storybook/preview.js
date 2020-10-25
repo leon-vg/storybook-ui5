@@ -1,5 +1,8 @@
+import { prepareForInline } from "storybook-ui5";
+
 export const parameters = {
     docs: {
-      inlineStories: false
+      inlineStories: true,
+      prepareForInline: prepareForInline
 	}
 }
