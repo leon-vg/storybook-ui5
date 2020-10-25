@@ -7,6 +7,7 @@ export {
   getStorybook,
   forceReRender,
   raw,
+  prepareForInline
 } from './preview';
 
 if (module && module.hot && module.hot.decline) {

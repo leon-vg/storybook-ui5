@@ -1,6 +1,7 @@
 import { sap } from 'global';
 import dedent from 'ts-dedent';
 import { RenderMainArgs } from './types';
+import react from 'react';
 
 export default function renderMain({
   storyFn,
@@ -53,4 +54,29 @@ export default function renderMain({
       fragment.placeAt("root", "only");
     });
   });
+}
+
+export function prepareForInline(storyFn: any) {
+  var element = storyFn();
+  const html = document.createElement("div");
+
+  const controller = element.controller ? element.controller : {};
+
+  sap.ui.getCore().attachInit(() => {
+    sap.ui.require(["sap/ui/core/mvc/XMLView", "sap/ui/core/mvc/Controller"], async function(XMLView: any, ControllerClass: any) {
+      const Controller = ControllerClass.extend("whatever", controller)
+      const fragment = await XMLView.create({
+        definition: `<mvc:View xmlns:mvc="sap.ui.core.mvc">${element.template ? element.template : element}</mvc:View>`,
+        controller: controller ? new Controller(): undefined
+      });
+      fragment.placeAt(html, "only");
+    });
+  });
+
+  return react.createElement("div", {
+    ref: function ref(node) {
+      return node ? node.appendChild(html) : null;
+    }
+  });
+
 }
