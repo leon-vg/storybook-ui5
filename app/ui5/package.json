@@ -1,6 +1,6 @@
 {
   "name": "storybook-ui5",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Storybook for UI5: View UI5 controls in isolation with hot reloading.",
   "keywords": [
     "storybook",
@@ -30,8 +30,8 @@
     "storybook-server": "./bin/index.js"
   },
   "dependencies": {
-    "@storybook/addons": "6.0.16",
-    "@storybook/core": "6.0.16",
+    "@storybook/addons": "^6.0.16",
+    "@storybook/core": "^6.0.16",
     "@types/webpack-env": "^1.15.2",
     "core-js": "^3.0.1",
     "global": "^4.3.2",
